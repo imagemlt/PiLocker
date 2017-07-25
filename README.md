@@ -15,7 +15,9 @@ This application is a face recognition application build on raspberry pi with we
 
 ## start  
 just type   
->	./PiLocker.py  
+```bash
+	./PiLocker.py  
+```
 then the web application will run and you can lauch it with your browser
 
 
