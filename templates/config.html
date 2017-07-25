@@ -1,0 +1,184 @@
+$def with (bool)
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="/static/my-jquery-ui/external/jquery/jquery.js"></script>
+  <script src="/static/my-jquery-ui/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/static/my-jquery-ui/style.css">
+<style>
+	div{
+		vertical-align:middle;
+	}
+	html{
+		width:100%;
+	}
+	body{
+		width:100%;
+		font-family:Baskerville, "微软雅黑"，"Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		background-color:snow;
+	}
+	ul{
+		display:block;
+		width:230px;
+		height:200px;
+		margin:0 auto;
+	}
+	li{
+		display:inline-block;
+		width:20px;
+		height:20px;
+		line-height:20px;
+		border:1px solid antiquewhite;
+		border-radius: 5px;
+		background:background: linear-gradient(right,white,blue,white);
+		text-align:center;
+		margin:5px;
+		cursor:pointer;
+	}
+	.col{
+		float:left;;
+		display:inline-block;
+		width:380px;
+	}
+	.pass{
+		display:inline-block;
+		height:50px;
+		width:280px;
+		border:1px solid green;
+		border-radius:3px;
+		margin-right:3px;
+		margin-bottom:5px;
+		margin-top:5px;
+		font-size:50px;
+	}
+	form{
+		display:block;
+		margin-top:50px;
+		vertical-align:middle;
+		padding:1px;
+	}
+	.submit{
+		display:block;
+		border:1px solid antiquewhite;
+		background-color:bisque;
+		border-radius:7px;
+		line-height:50px;
+		font-size:20px;
+		width:97%;
+		height:50px;
+		float:left;
+	}
+	.head{
+		width:100%;
+		text-align:center;
+		font-size:20px;
+		
+	}
+	.back{
+	background-color:red;
+	}
+	span{
+		line-height: 50px;
+		height:50px;
+		display:inline-block;
+		float:left;
+		margin-right:3px;
+		margin-bottom:5px;
+		margin-top:5px;
+	}
+	.form-control{
+		display:block;
+		
+	}
+</style>
+</head>
+
+
+
+<body>
+<div class="head">设置网络连接</div>
+<div class="col left">
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>0</li>
+		<li>_</li>
+		<li>-</li>
+		<li>+</li>
+		<li>-</li>
+		<li>a</li>
+		<li>b</li>
+		<li>c</li>
+		<li>d</li>
+		<li>e</li>
+		<li>f</li>
+		<li>g</li>
+		<li>h</li>
+		<li>i</li>
+		<li>j</li>
+		<li>k</li>
+		<li>l</li>
+		<li>m</li>
+		<li>n</li>
+		<li>o</li>
+		<li>p</li>
+		<li>q</li>
+		<li>r</li>
+		<li>s</li>
+		<li>t</li>
+		<li>u</li>
+		<li>v</li>
+		<li>*</li>
+		<li>w</li>
+		<li>x</li>
+		<li>y</li>
+		<li>z</li>
+		<li class="back">《</li>
+        <li class="big">!</li>
+	</ul>
+</div>
+<div class="col right">
+
+		<form action="config" method="POST">
+		<div class="form-control"><span>输入ssid：</span><input type="text" name="ssid" id="pass" class="pass"/></div>
+	<div class="form-control"><span>输入密码：</span><input type="password"  id="pass1" class="pass" name="psk"/></div>
+		<input class="submit" type="submit" value="设置连接">
+	</form>
+</div>
+
+<script>
+
+var point;
+var biggercase=false;
+	jQuery("body").ready(function(){
+		console.log("ready");
+		jQuery(".pass").focus(function(){point=jQuery(this);});
+	jQuery("li").click(function(){
+		
+		console.log(jQuery(this).html());
+	
+		if(jQuery(this).hasClass("back"))
+			point.val(point.val().slice(0,-1));
+        else if(jQuery(this).hasClass("big")){
+            jQuery("li").each(function(index,element){if(!biggercase)jQuery(element).html(jQuery(element).html().toUpperCase());else jQuery(element).html(jQuery(element).html().toLowerCase());})
+            biggercase=!biggercase;
+        }
+		else
+		point.val(point.val()+jQuery(this).html());
+		
+		
+	})
+	
+	});
+	</script>
+</body>
+</html>

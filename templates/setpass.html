@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<script src="/static/my-jquery-ui/external/jquery/jquery.js"></script>
+  <script src="/static/my-jquery-ui/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/static/my-jquery-ui/style.css">
+<title>无标题文档</title>
+<style>
+	div{
+		vertical-align:middle;
+	}
+	html{
+		width:100%;
+	}
+	body{
+		width:100%;
+		font-family:Baskerville, "微软雅黑"，"Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+		background-color:snow;
+	}
+	ul{
+		display:block;
+		width:230px;
+		height:200px;
+		margin:0 auto;
+	}
+	li{
+		display:inline-block;
+		width:50px;
+		height:50px;
+		line-height:50px;
+		border:1px solid antiquewhite;
+		border-radius: 5px;
+		background:background: linear-gradient(right,white,blue,white);
+		text-align:center;
+		margin:5px;
+		cursor:pointer;
+	}
+	.col{
+		float:left;;
+		display:inline-block;
+		width:400px;
+	}
+	.pass{
+		display:inline-block;
+		height:50px;
+		width:300px;
+		border:1px solid green;
+		border-radius:3px;
+		margin-right:3px;
+		margin-bottom:5px;
+		margin-top:5px;
+		font-size:50px;
+	}
+	form{
+		display:block;
+		margin-top:50px;
+		vertical-align:middle;
+		padding:1px;
+	}
+	.submit{
+		display:block;
+		border:1px solid antiquewhite;
+		background-color:bisque;
+		border-radius:7px;
+		line-height:50px;
+		font-size:20px;
+		width:97%;
+		height:50px;
+		float:left;
+	}
+	.head{
+		width:100%;
+		text-align:center;
+		font-size:20px;
+		
+	}
+	.back{
+	background-color:red;
+	}
+	span{
+		line-height: 50px;
+		height:50px;
+		display:inline-block;
+		float:left;
+		margin-right:3px;
+		margin-bottom:5px;
+		margin-top:5px;
+	}
+	.form-control{
+		display:block;
+		
+	}
+</style>
+</head>
+
+<body>
+<div class="head">请输入您的密码：</div>
+<div class="col panel"><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>*</li><li>0</li><li class="back">《=</li></ul></div>
+<div class="col loginform">
+	<form action="setpass" method="POST">
+		<div class="form-control"><span>输入密码：</span><input type="password" name="pass" id="pass" class="pass"/></div>
+	<div class="form-control"><span>再次输入：</span><input type="password"  id="pass1" class="pass"/></div>
+		<input class="submit" type="submit" disabled="true" value="设置">
+	</form>
+</div>
+
+<script>
+	var point;
+	jQuery("body").ready(function(){
+		console.log("ready");
+		jQuery(".pass").focus(function(){point=jQuery(this);});
+	jQuery("li").click(function(){
+		
+		console.log(jQuery(this).html());
+	
+		if(jQuery(this).hasClass("back"))
+			point.val(point.val().slice(0,-1));
+		else
+			point.val(point.val()+jQuery(this).html());
+		
+		if(jQuery("#pass1").val()==jQuery("#pass").val())jQuery(".submit").removeAttr("disabled")
+		else jQuery(".submit").attr("disabled","true")
+		console.log(jQuery("#pass1").val()+" "+jQuery("#pass").val()+" "+(jQuery("#pass1").val()==jQuery("#pass").val()))
+	})
+	
+	});
+	</script>
+</body>
+</html>
