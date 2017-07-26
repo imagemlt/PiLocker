@@ -15,13 +15,13 @@ This application is a face recognition application build on raspberry pi with we
 
 ## start  
 just type   
-```bash
+```shell
 	./PiLocker.py  
 ```
 then the web application will run and you can lauch it with your browser. 
 To make the application be accessed after the raspberry pi booted, you should do the following to enable the application run with full-screen chrome browser.  
 edit the file:  
-```bash
+```shell
 	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```  
 Comment out this line:  
@@ -30,7 +30,7 @@ Comment out this line:
 ```
 Add these lines:  
 ```shell
-		@xset s off @xset -dpms @xset s noblank /usr/bin/chromium --noerrdialogs --kiosk --incognito "http://localhost:8080"
+	@xset s off @xset -dpms @xset s noblank /usr/bin/chromium --noerrdialogs --kiosk --incognito "http://localhost:8080"
 ```  
 edit the /etc/rc.local, add these lines before the line "exit 0":  
 ```shell
