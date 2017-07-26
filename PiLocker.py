@@ -38,7 +38,7 @@ session=web.session.Session(app,web.session.DiskStore('sessions'),initializer={'
 
 def checkAuth():
     if session.auth == 0:
-        raise web.seeother("/config")
+        raise web.seeother("/index")
 
 def getphoto(path):
         camera=picamera.PiCamera()
