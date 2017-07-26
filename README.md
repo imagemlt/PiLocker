@@ -10,7 +10,7 @@ This application is a face recognition application build on raspberry pi with we
 * Specific camera module for RPi  
 * Python with webpy and PiCamera extension  
 * Face++ sdk  
-> note: this application run on 800x400 screen.  
+> note: this application run on 800x600 screen.  
  
 
 ## start  
