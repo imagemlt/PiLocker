@@ -18,8 +18,24 @@ just type
 ```bash
 	./PiLocker.py  
 ```
-then the web application will run and you can lauch it with your browser
-
-
+then the web application will run and you can lauch it with your browser. 
+To make the application be accessed after the raspberry pi booted, you should do the following to enable the application run with full-screen chrome browser.  
+edit the file:  
+```bash
+	sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+```  
+Comment out this line:  
+```shell
+	@xscreensaver -no-splash
+```
+Add these lines:  
+```shell
+		@xset s off @xset -dpms @xset s noblank /usr/bin/chromium --noerrdialogs --kiosk --incognito "http://localhost:8080"
+```  
+edit the /etc/rc.local, add these lines before the line "exit 0":  
+```shell
+	cd YOUR_PROJECT_BASE_DIR && python ./PiLocker.py &
+```
+Then you can enjoy the lock.
 
 
